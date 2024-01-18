@@ -43,6 +43,19 @@ $marker = optional_param('marker', -1 , PARAM_INT);
 $switchrole = optional_param('switchrole', -1, PARAM_INT); // Deprecated, use course/switchrole.php instead.
 $return = optional_param('return', 0, PARAM_LOCALURL);
 
+echo '<div id="popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 1000;">Вітаємо вас на нашому курсі!</div>';
+echo '<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.getElementById("popup").style.display = "block";
+    }, 3000);
+    
+    document.getElementById("popup").addEventListener("click", function() {
+        document.getElementById("popup").style.display = "none";
+    });
+});
+</script>';
+
 $params = [];
 if (!empty($name)) {
     $params = ['shortname' => $name];
